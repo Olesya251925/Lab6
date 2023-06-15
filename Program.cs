@@ -144,7 +144,7 @@ namespace lab
         }
         public int Sum(SquareMatrix Matrix)
         {
-            int Sum = ;
+            int Sum = 0;
             for (int RowIndex = 0; RowIndex < Matrix.Size; ++RowIndex)
             {
                 for (int ColumnIndex = 0; ColumnIndex < Matrix.Size; ++ColumnIndex)
