@@ -17,7 +17,7 @@ namespace lab
                 }
                 Console.WriteLine();
             }
-            return ;
+            return 0;
         }
         public static int Track(this SquareMatrix Matrix) 
         {
