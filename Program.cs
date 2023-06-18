@@ -7,6 +7,7 @@ namespace lab
 {
     public static class Extensions
     {
+        // Метод для транспонирования матрицы
         public static int Transposition(this SquareMatrix Matrix) 
         {
             for (int FirstDigit = 0; FirstDigit < Matrix.Size; ++FirstDigit)
@@ -19,6 +20,8 @@ namespace lab
             }
             return 0;
         }
+        
+         // Метод для вычисления следа матрицы
         public static int Track(this SquareMatrix Matrix) 
         {
             int Result = 0;
@@ -29,11 +32,13 @@ namespace lab
             return Result;
         }
     }
-
+    
+    //Описание делегата DiagMatrix
     public delegate SquareMatrix DiagMatrix(SquareMatrix Matrix);
 
     class Overload
     {
+         // Метод для вычисления определителя матрицы
         public static int Determinant(SquareMatrix Matrix) 
         {
             int Result = 0;
@@ -62,7 +67,8 @@ namespace lab
             }
             return Result;
         }
-
+        
+        // Метод для вывода обратной матрицы
         public static void ReverseMatrix(SquareMatrix Matrix)
         {
             Console.WriteLine("Обратная матрица: ");
@@ -111,15 +117,19 @@ namespace lab
 
     public class SquareMatrix
     {
+        // Поля класса
         public int Size;
         public int[,] Digits = new int[10, 10];
 
         public int CompareTo(SquareMatrix FirstMatrix, SquareMatrix SecondMatrix)
         {
+             // Метод для сравнения двух матриц
             if (FirstMatrix.Sum(FirstMatrix) > SecondMatrix.Sum(SecondMatrix)) return 1;
             if (FirstMatrix.Sum(FirstMatrix) < SecondMatrix.Sum(SecondMatrix)) return -1;
             return 0;
         }
+        
+        // Перегрузка оператора "+" для матрицы и числа
         public static SquareMatrix operator +(SquareMatrix Matrix, int Digit)
         {
             for (int RowIndex = 0; RowIndex < Matrix.Size; ++RowIndex)
@@ -131,6 +141,8 @@ namespace lab
             }
             return Matrix;
         }
+        
+         // Перегрузка оператора "*" для матрицы и числа
         public static SquareMatrix operator *(SquareMatrix Matrix, int Digit)
         {
             for (int RowIndex = 0; RowIndex < Matrix.Size; ++RowIndex)
@@ -344,6 +356,8 @@ namespace lab
             PrivateEvent = new Event1(); Next = new Handler2();
         }
     }
+    
+    //цепочка обработчиков 
     public class ChainApplication
     {
         public ChainApplication()
@@ -456,6 +470,8 @@ namespace lab
                     Console.WriteLine(MyMatrix.Track());
                     break;
                 case 13:
+                    
+                    // Создается анонимный делегат с именем DiagMatrix, который принимает объект типа SquareMatrix в качестве параметра.
                     DiagMatrix DiagMatrix = delegate (SquareMatrix Matrix) {
                         SquareMatrix ReserveMatrix = Matrix;
                         for (int MainDiag = 0; MainDiag < Matrix.Size; ++MainDiag)
